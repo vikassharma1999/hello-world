@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CHAP</title>
+</head>
+<body>
+<header>
+	<h1>College HElp With AI Programme</h1>
+	<h2>No Gap ONly ChaP</h2>
+
+</header>
+<nav>
+	<ul>
+		{% if user.is_authenticated%}
+		<li><form class="logout_link" action="{% url 'auth:logout'%}" method="POST">
+			{%csrf_token%}
+			 <button>Logout</button>
+			
+			
+		</form></li>
+		{%else%}
+		<li><a href="{% url 'auth:login'%}">Login</a></li>
+		<li><a href="{% url 'auth:signup'%}">Signup</a></li>
+		{%endif%}
+	</ul>
+</nav>
+<div>
+	{%block content%}
+	{%endblock%}
+</div>
+</body>
+</html>
