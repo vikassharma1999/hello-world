@@ -1,0 +1,78 @@
+#this is a kv file the root widget is Home
+Home:
+<Home>:
+    orientation:"vertical"
+    BoxLayout:
+        size_hint_y:None
+        height:"40dp"
+        Label:
+            text:"NO GAP ONLY CHAP"
+    BoxLayout:
+
+        Button:
+            text:"Guest"
+            on_press:root.hello()
+
+        Button:
+            text:"Student"
+        Button:
+            text:"Faculty"
+    BoxLayout:
+        Label:
+            text:"hello"
+<GuestLayout>:
+    orientation:"vertical"
+    user_input:user
+    bot_output:bot
+    BoxLayout:
+        size_hint_y:None
+        height:"60dp"
+        padding:10
+        spacing:30
+        Label:
+            text:"USER=>"
+            size_hint_x:0.4
+        TextInput:
+            id:user
+           
+            text:"Enter your query"
+            multiline:False
+            size_hint_x:2
+            on_text_validate:root.Namesty()
+
+
+            
+        Button:
+            text:"Send"
+            size_hint_x:0.5
+            on_press:root.Namesty()
+    BoxLayout:
+        Label:
+            text:"BOT=>"
+            size_hint_x:0.4
+        TextInput:
+            id:bot
+            multiline:False
+            size_hint_x:2
+
+    BoxLayout:
+        Button:
+            text:"Reset"
+            size_hint_x:.5
+            on_press:root.clear()
+            size_hint_x:0.2
+            size_hint_y:0.2
+            pos_hint:{'x':0.5,'y':.5}
+        Button:
+            text:"Back"
+            size_hint_x:.5
+            on_press:app.root.back()
+            size_hint_x:0.2
+            size_hint_y:0.2
+            pos_hint:{'x':0.5,'y':.5}
+
+    
+    
+
+
+    
