@@ -20,59 +20,41 @@ Home:
     BoxLayout:
         Label:
             text:"hello"
+<ChatLabel@Label>:    
+    text_size: (self.width, None) 
+    color: 0,0,0,1
+    halign: 'left'    
+    valign: 'top'    
+    size_hint: (1, None) 
+    height: self.texture_size[1]
+
 <GuestLayout>:
-    orientation:"vertical"
-    user_input:user
-    bot_output:bot
     BoxLayout:
-        size_hint_y:None
-        height:"60dp"
-        padding:10
-        spacing:30
-        Label:
-            text:"USER=>"
-            size_hint_x:0.4
-        TextInput:
-            id:user
-           
-            text:"Enter your query"
-            multiline:False
-            size_hint_x:2
-            on_text_validate:root.Namesty()
-
-
-            
-        Button:
-            text:"Send"
-            size_hint_x:0.5
-            on_press:root.Namesty()
-    BoxLayout:
-        Label:
-            text:"BOT=>"
-            size_hint_x:0.4
-        TextInput:
-            id:bot
-            multiline:False
-            size_hint_x:2
-
-    BoxLayout:
-        Button:
-            text:"Reset"
-            size_hint_x:.5
-            on_press:root.clear()
-            size_hint_x:0.2
-            size_hint_y:0.2
-            pos_hint:{'x':0.5,'y':.5}
-        Button:
-            text:"Back"
-            size_hint_x:.5
-            on_press:app.root.back()
-            size_hint_x:0.2
-            size_hint_y:0.2
-            pos_hint:{'x':0.5,'y':.5}
-
-    
-    
+        orientation: 'vertical'
+        usr_input:message
+    ScrollView:    
+        canvas.before:  
+            Color:         
+                rgb: 1, 1, 1      
+            Rectangle:           
+                pos: self.pos         
+                size: self.size        
+        ChatLabel:         
+            id: chat_logs              
+            text: ""        
+    BoxLayout:          
+        height: 40         
+        orientation: 'horizontal'            
+        padding: 0          
+        size_hint: (1, None)      
+        TextInput:                
+            id: message   
+            on_text_validate: root.send_msg() 
+            multiline:False        
+        Button:               
+            text: 'Send'        
+            size_hint: (0.3, 1)
+            on_press: root.send_msg()
 
 
     
