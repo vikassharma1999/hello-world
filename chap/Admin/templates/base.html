@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CHAP</title>
+	<title>chap</title>
 </head>
 <body>
-<header>
-	<h1>College HElp With AI Programme</h1>
-	<h2>No Gap ONly ChaP</h2>
-
+	<header>
+<h1><a href="{% url 'home' %}">Home</a></h1>
 </header>
 <nav>
 	<ul>
 		{% if user.is_authenticated%}
-		<li><form class="logout_link" action="{% url 'auth:logout'%}" method="POST">
-			{%csrf_token%}
-			 <button>Logout</button>
+		<li>
+		<form class="site-form" action="{% url 'Auth:Logout'%}" method="POST">
+			{% csrf_token%}
+			<button type="submit">Logout</button>
 			
-			
-		</form></li>
-		{%else%}
-		<li><a href="{% url 'auth:login'%}">Login</a></li>
-		<li><a href="{% url 'auth:signup'%}">Signup</a></li>
-		{%endif%}
-	</ul>
+		</form>
+	</li>
+	{%else%}
+	<li><a href="{% url 'Auth:Login'%}">Login</a></li>
+	<li><a href="{% url 'Auth:Signup' %}">Signup</a></li>
+	{%endif%}
+</ul>
 </nav>
 <div>
 	{%block content%}
