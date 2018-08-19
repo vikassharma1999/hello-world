@@ -6,6 +6,7 @@
 <body>
 	<header>
 <h1><a href="{% url 'home' %}">Home</a></h1>
+<h1>No gAp ONly CHap</h1>
 </header>
 <nav>
 	<ul>
@@ -17,6 +18,7 @@
 			
 		</form>
 	</li>
+	<li><a href="{% url 'CreateDb:CreateDb'%}">CreateDb</a></li>
 	{%else%}
 	<li><a href="{% url 'Auth:Login'%}">Login</a></li>
 	<li><a href="{% url 'Auth:Signup' %}">Signup</a></li>
